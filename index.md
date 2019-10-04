@@ -8,4 +8,6 @@ author: null
 show_tile: false
 ---
 
-Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.
+B.Tech in Computer Engineer from Nirma University, Ahmedabad, India. I have been working in the field of Artificial Intelligence and Machine Learning from past 3 years and have experience in projects involving Computer Vision, Agriculture, Nuclear Physics, Parallel Computing, Medical Imaging, Satellite Imagery and Audio Signal Processing. Besides the academic activities, I am very passionate about Body Building and Fitness.
+
+Here’s a link to my CV, Résumé.
