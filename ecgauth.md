@@ -70,7 +70,11 @@ The code for segmenting the continuous ECG signals.
 
 When we read signal from the files, it comes like a continuous wave (represented in the diagram above). So our first step will be to segment these continuous waves into the individual samples, representing just one wave. This is done through the Christov Segmenter.
 
-<a href="" class="image" style="position:absolute; width:100%; height:100%; margin-left:auto; margin-right:auto; align:center;"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a>
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a>
+</div>
+
+<!-- <a href="" class="image" style="position:absolute; width:100%; height:100%; margin-left:auto; margin-right:auto; align:center;"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a> -->
 
 Single ECG wave segmented from the continuous signal.
 
