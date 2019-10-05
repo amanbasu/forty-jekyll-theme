@@ -27,13 +27,13 @@ nav-menu: true
 - Each of the centers provided <b>25 transverse T2-weighted MR images</b>. This resulted in a total of <b>100</b> MR images. 
 - Details pertaining to the acquisition can be found in the table below.
 
-<a href=""><img src="assets/images/prostatetable.png"></a>
-<a href=""><img src="assets/images/prostatedata.png"></a>
+<a href="" class="image"><img src="assets/images/prostatetable.png" alt="" data-position="center" /></a>
+<a href="" class="image"><img src="assets/images/prostatedata.png" alt="" data-position="center" /></a>
 
 # Implementation
 
 We used a modified V-net architecture for segmentation shown in the figure below.
-<a href=""><img src="assets/images/prostate.png"></a>
+<a href="" class="image"><img src="assets/images/prostate.png" alt="" data-position="center" /></a>
 
 # Training
 We trained our model on different GPUs and got the following speedups.
