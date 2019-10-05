@@ -2,7 +2,7 @@
 layout: post
 title: Speech Emotion Recognition
 description: Detecting emotions from MFCC features of human speech using Deep Learning
-image: assets/images/emotion_recognition.png
+image: assets/images/emotion.png
 nav-menu: true
 ---
 
