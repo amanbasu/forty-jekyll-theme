@@ -24,16 +24,15 @@ nav-menu: true
     - Beth Israel Deaconess Medical Center (BIDMC), United States
     - University College London (UCL), United Kingdom
     - Radboud University Nijmegen Medical Centre (RUNMC), Netherlands. 
+    <a href="" class="image"><img src="assets/images/prostatedata.png" alt="" data-position="center" /></a>
 - Each of the centers provided <b>25 transverse T2-weighted MR images</b>. This resulted in a total of <b>100</b> MR images. 
 - Details pertaining to the acquisition can be found in the table below.
 
 <a href="" class="image"><img src="assets/images/prostatetable.png" alt="" data-position="center" /></a>
-<a href="" class="image"><img src="assets/images/prostatedata.png" alt="" data-position="center" /></a>
 
 # Implementation
 
-We used a modified V-net architecture for segmentation shown in the figure below.
-<a href="" class="image"><img src="assets/images/prostate.png" alt="" data-position="center" /></a>
+We used a modified V-net architecture for segmentation.
 
 # Training
 We trained our model on different GPUs and got the following speedups.
