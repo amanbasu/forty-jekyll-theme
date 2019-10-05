@@ -230,15 +230,15 @@ I hope this article instills the idea of using a new way of authentication which
 ## References
 
 1. <https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read/#29b554e960ba>
-2. https://www.tracesecurity.com/blog/articles/81-of-company-data-breaches-due-to-poor-passwords
-3. https://www.sciencedirect.com/science/article/pii/S0969476518300110?via%3Dihub
-4. https://cloud.google.com/ai-platform/
-5. https://cloud.google.com/ml-engine/docs/deploying-models
-6. https://cloud.google.com/iam/docs/creating-managing-service-accounts
+2. <https://www.tracesecurity.com/blog/articles/81-of-company-data-breaches-due-to-poor-passwords>
+3. <https://www.sciencedirect.com/science/article/pii/S0969476518300110?via%3Dihub>
+4. <https://cloud.google.com/ai-platform/>
+5. <https://cloud.google.com/ml-engine/docs/deploying-models>
+6. <https://cloud.google.com/iam/docs/creating-managing-service-accounts>
 
 ECG Authentication Resources
-7. https://www.hindawi.com/journals/wcmc/2019/6458719/
-8. https://ieeexplore.ieee.org/abstract/document/8192201/
-9. https://ieeexplore.ieee.org/abstract/document/7348372
-10. https://ieeexplore.ieee.org/abstract/document/7933065
+7. <https://www.hindawi.com/journals/wcmc/2019/6458719/>
+8. <https://ieeexplore.ieee.org/abstract/document/8192201/>
+9. <https://ieeexplore.ieee.org/abstract/document/7348372>
+10. <https://ieeexplore.ieee.org/abstract/document/7933065>
 11. https://ieeexplore.ieee.org/abstract/document/8095063
