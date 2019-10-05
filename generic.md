@@ -23,7 +23,7 @@ The model was trained for 500 epochs and after which the curve almost reached a 
 
 Dropout of 0.2             |  No Dropout
 :-------------------------:|:-------------------------:
-<a href="" class="image"><img src="https://github.com/amanbasu/speech-emotion-recognition/blob/master/plot_dropout.png" alt="" data-position="left" /></a>  |  <a href="" class="image"><img src="https://github.com/amanbasu/speech-emotion-recognition/blob/master/plot_no_dropout.png" alt="" data-position="right" /></a>
+<a href="" class="image"><img src="assets/images/emotiondropout.png" alt="" data-position="left" /></a>  |  <a href="" class="image"><img src="assets/images/emotionnodropout.png" alt="" data-position="right" /></a>
 
 ## Tensorflow model
 Tensorflow implementation of the model has been added. The repository contains two files, [speech_emotion_gpu](https://github.com/amanbasu/speech-emotion-recognition/blob/master/speech_emotion_gpu.py) to run the model on gpu and [speech_emotion_gpu_multi](https://github.com/amanbasu/speech-emotion-recognition/blob/master/speech_emotion_gpu_multi.py) which makes the file run parallelly on multiple gpus.
