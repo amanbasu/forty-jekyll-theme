@@ -1,5 +1,12 @@
-# Ship Detection in Satellite Images from Scratch
-## Building a complete Ship detection algorithm using YOLOv3 and Planet satellite images from scratch
+---
+layout: post
+title: Ship Detection in Satellite Images
+description: 
+image: assets/images/prostate.png
+nav-menu: true
+---
+
+### Building a complete Ship detection algorithm using YOLOv3 and Planet satellite images from scratch
 
 ## Introduction
 
