@@ -6,7 +6,7 @@ image: assets/images/1*yVNIt0fqLYeFpjFbWqtqs.png
 nav-menu: true
 ---
 
-The amount of data each individual produces today is mind-boggling. In fact, in the past 2–3 years, we have generated around 90% of the total world data [1]. Surprising? But this ain’t enough. In the age of Big Data and IoT, this is going to increase manifold in the coming years. One of the biggest downsides that come with this data explosion is its security. According to the Verizon Data Breach Investigations Report [2],
+The amount of data each individual produces today is mind-boggling. In fact, in the past 2–3 years, we have generated around 90% of the total world data [1]. Surprising? But this ain’t enough. In the age of Big Data and IoT, this is going to increase manifold in the coming years. One of the biggest downsides that come with this data explosion is its security. According to the [Verizon Data Breach Investigations Report](https://enterprise.verizon.com/resources/reports/dbir/) [2],
 
 > over 70% of employees reuse passwords at work. And also, “81% of hacking-related breaches leveraged either stolen and/or weak passwords.”
 
@@ -28,7 +28,7 @@ There are a very few implementations or white papers on ECG for authentication a
 
 Apart from authentication, ECG can be used in the detection of various heart-related complications as well, like enlargement of the heart, abnormal rhythm (arrhythmia), heart inflammation (pericarditis or myocarditis), cardiac arrest and so on. Check out this detailed blog from Intel on how AI will be taking over the Healthcare market.
 
-Now that the theoretical concept is clear, let’s move on to some hands-on. The next part of this blog post will focus on the implementation of the ECG biometric authentication using Deep Learning on Intel® AI DevCloud.
+Now that the theoretical concept is clear, let’s move on to some hands-on. The next part of this blog post will focus on the implementation of the ECG biometric authentication using Deep Learning on [Intel® AI DevCloud](https://software.intel.com/en-us/devcloud).
 
 ## Data
 
@@ -38,8 +38,8 @@ The ECG waves are divided into 3 major parts: P, QRS complex, and T. They repres
   <a href="" class="image"><img src="assets/images/ecgrepresentation.png" alt="" data-position="center" /></a><br>
 </div>
 
-For this task, ECG-ID Database was used which contains 310 ECG signals from 90 different people. The number of recordings for each person varies from 2 to 20 and contains raw and filtered signals (without noise).
-We’ll use deep learning for this task and therefore don’t need to provide the features explicitly, rather, we’ll use the images of the ECG signals to train a Siamese network and differentiate between them. Where are the images? Let’s create them.
+For this task, [ECG-ID Database](https://physionet.org/content/ecgiddb/1.0.0/) was used which contains 310 ECG signals from 90 different people. The number of recordings for each person varies from 2 to 20 and contains raw and filtered signals (without noise).
+We’ll use deep learning for this task and therefore don’t need to provide the features explicitly, rather, we’ll use the images of the ECG signals to train a [Siamese network](https://en.wikipedia.org/wiki/Siamese_neural_network) and differentiate between them. Where are the images? Let’s create them.
 
 ```
 def segmentation(filename):
@@ -70,7 +70,7 @@ def segmentation(filename):
 The code for segmenting the continuous ECG signals.
 
 
-When we read signal from the files, it comes like a continuous wave (represented in the diagram above). So our first step will be to segment these continuous waves into the individual samples, representing just one wave. This is done through the Christov Segmenter.
+When we read signal from the files, it comes like a continuous wave (represented in the diagram above). So our first step will be to segment these continuous waves into the individual samples, representing just one wave. This is done through the [Christov Segmenter](https://biomedical-engineering-online.biomedcentral.com/articles/10.1186/1475-925X-3-28).
 
 <div style="text-align:center">
   <a href="" class="image"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a><br>
@@ -113,11 +113,11 @@ The word Siamese literally translates to conjoined twins. In deep learning, thes
   <p>Siamese model architecture.</p>
 </div>
 
-Here, we have created a convolutional neural network as our model. More details about which can be found on my GitHub repository.
+Here, we have created a convolutional neural network as our model. More details about which can be found on my GitHub [repository](https://github.com/amanbasu/ECG-Authentication).
 
 ## Training
 
-The model training was done on Intel® AI DevCloud. It is a cluster of Intel® Xeon® Scalable Processors that will assist you with your compute needs in training and inferencing ML models. Along with the compute power, it also provides access to the precompiled software optimized for Intel® architecture. For more information, I would suggest you to go over to the [this](https://medium.com/intel-student-ambassadors/getting-started-with-intel-ai-devcloud-348a88b29eb9) article.
+The model training was done on [Intel® AI DevCloud](https://software.intel.com/en-us/devcloud). It is a cluster of [Intel® Xeon®](https://www.intel.in/content/www/in/en/products/docs/processors/xeon/2nd-gen-xeon-scalable-processors-brief.html?cid=sem&source=sa360&campid=2019_q3_dcg_in_dcgeg2_dcgeg3_consid_text-link_na_exact_cd_e%26g-india-preference_3001761797_google&ad_group=Xeon+%26+Data+center+-+Xeon&intel_term=intel+xeon&sa360id=43700043858091262&gclsrc=aw.ds&&gclid=Cj0KCQjwoKzsBRC5ARIsAITcwXEZYxf1Miroc4RgHCeVqlmcuJpOzaGonxT5DwMzucUhTr_RXgU7M-MaAn8vEALw_wcB) Scalable Processors that will assist you with your compute needs in training and inferencing ML models. Along with the compute power, it also provides access to the precompiled software optimized for Intel® architecture. For more information, I would suggest you to go over to [this](https://medium.com/intel-student-ambassadors/getting-started-with-intel-ai-devcloud-348a88b29eb9) article.
 
 It took around 3000 iterations to reach the average person-wise validation accuracy of around 85%. Further tweaking of model architecture and training for a long time can surely improve the model. I will leave that to you for now and head on to the deployment.
 
@@ -128,7 +128,7 @@ It took around 3000 iterations to reach the average person-wise validation accur
 
 ## Deployment
 
-We are going to use Google Cloud’s AI Platform (ML Engine) for the model deployment. AI Platform helps developers to work on their ML projects from ideation to production and deployment, quickly and cost-effectively. It supports Kubeflow, Google’s open-source platform, which lets you build portable ML pipelines that you can run on-premises or on Google Cloud without significant code changes. And you’ll have access to cutting-edge Google AI technology like TensorFlow, TPUs, and TFX tools as you deploy your AI applications to production [4].
+We are going to use [Google Cloud’s](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiy-oGn0e3kAhUJMo8KHbvHCk4QFjAAegQIBhAC&url=https%3A%2F%2Fcloud.google.com%2F&usg=AOvVaw02aG0Rc2vxvndCRTTY1Ufi) AI Platform (ML Engine) for the model deployment. AI Platform helps developers to work on their ML projects from ideation to production and deployment, quickly and cost-effectively. It supports Kubeflow, Google’s open-source platform, which lets you build portable ML pipelines that you can run on-premises or on Google Cloud without significant code changes. And you’ll have access to cutting-edge Google AI technology like TensorFlow, TPUs, and TFX tools as you deploy your AI applications to production [4].
 You will need to have a Google Cloud account for this section, if you don’t have or don’t want to create one, you can even access the model locally. Follow the steps below for the further process [5].
 
 ### Step 1
@@ -175,7 +175,7 @@ Head over to the AI Platform -> Models and create a new model for your project. 
 Check the version of python and TensorFlow in your development environment and provide those details while creating the new model version. In the model URI, give the path of the folder where the saved_model.pb is located. When the model version gets the request, it hits the URI and runs the model for the output. Keep the rest of the options as default and create the version.
 
 ### Step 4
-For accessing the service, you need to create a service account [6]. To do this, go to this link -> select a project -> click on CREATE SERVICE ACCOUNT button.
+For accessing the service, you need to create a service account [6]. To do this, go to [this](https://console.cloud.google.com/iam-admin/serviceaccounts?_ga=2.32479614.-1158438249.1569485847) link -> select a project -> click on CREATE SERVICE ACCOUNT button.
 
 Give any service account name, select the role as project owner and then create a .json key. This will generate a key pair and download it to your computer. Note down the path of the file just downloaded as we’ll be requiring it during the inference.
 
@@ -186,7 +186,7 @@ Give any service account name, select the role as project owner and then create 
 </div>
 
 ### Step 5
-The final step is to query the model thus hosted. We will use the GoogleApiClient python API for this purpose.
+The final step is to query the model thus hosted. We will use the [GoogleApiClient](https://developers.google.com/android/reference/com/google/android/gms/common/api/GoogleApiClient) python API for this purpose.
 
 ```
 import os
@@ -224,7 +224,7 @@ The last part is to create the request which will consist of the two input image
 
 Pheeewww!! That was a lot of information right? Let’s summarize what we have discussed. We started with the idea of using a person’s electrocardiogram as a means of authentication, as it is unique to an individual and has a lot of advantages over the other methods. Then we went through a public ECG database and prepared the image data consisting of segmented ECG waves of 90 different people. A Siamese model was trained on this data to get the similarity between the two input images and verify the user’s identity. The trained model was finally deployed on the Google Cloud Platform and then we saw how to inference it using the python API.
 
-I hope this article instills the idea of using a new way of authentication which hasn’t been explored much. Feel free to share your doubts or findings in the comment section. Also, do check out the GitHub repository for the complete code. Thanks!
+I hope this article instills the idea of using a new way of authentication which hasn’t been explored much. Feel free to share your doubts or findings in the comment section. Also, do check out the GitHub [repository](https://github.com/amanbasu/ECG-Authentication) for the complete code. Thanks!
 
 ## References
 
