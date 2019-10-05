@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ship Detection in Satellite Images
+title: Ship Detection
 description: 
 image: assets/images/prostate.png
 nav-menu: true
