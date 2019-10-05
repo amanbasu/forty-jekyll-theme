@@ -2,7 +2,7 @@
 layout: post
 title: Ship Detection
 description: Building a complete Ship detection algorithm using YOLOv3 and Planet satellite images from scratch
-image: assets/images/prostate.png
+image: assets/images/1*nyILrq0KnC2YRUvVhqY44A.png
 nav-menu: true
 ---
 
