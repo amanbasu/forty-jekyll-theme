@@ -71,6 +71,7 @@ The code for segmenting the continuous ECG signals.
 When we read signal from the files, it comes like a continuous wave (represented in the diagram above). So our first step will be to segment these continuous waves into the individual samples, representing just one wave. This is done through the Christov Segmenter.
 
 <a href="" class="image"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a>
+
 Single ECG wave segmented from the continuous signal.
 
 These individual signals thus segmented are then plotted and saved using matplotlib. For all 90 different people, 50–100 such images were created, making the total of around 6000 images (on average 65 per person).
@@ -222,8 +223,8 @@ I hope this article instills the idea of using a new way of authentication which
 6. https://cloud.google.com/iam/docs/creating-managing-service-accounts
 
 ECG Authentication Resources
-4. https://www.hindawi.com/journals/wcmc/2019/6458719/
-5. https://ieeexplore.ieee.org/abstract/document/8192201/
-6. https://ieeexplore.ieee.org/abstract/document/7348372
-7. https://ieeexplore.ieee.org/abstract/document/7933065
-8. https://ieeexplore.ieee.org/abstract/document/8095063
+7. https://www.hindawi.com/journals/wcmc/2019/6458719/
+8. https://ieeexplore.ieee.org/abstract/document/8192201/
+9. https://ieeexplore.ieee.org/abstract/document/7348372
+10. https://ieeexplore.ieee.org/abstract/document/7933065
+11. https://ieeexplore.ieee.org/abstract/document/8095063
