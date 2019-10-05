@@ -18,9 +18,10 @@ In this tutorial, I would be talking about how to build your object detection al
 
 There are various government and private organizations providing satellite imageries at different resolutions like [Landsat](https://landsat.gsfc.nasa.gov), [Sentinel](https://www.esa.int/Our_Activities/Observing_the_Earth/Copernicus/Overview4), [Planet Labs](https://www.planet.com), and [Digital Globe](https://www.digitalglobe.com) etc. Landsat and Sentinel imageries are easy to acquire through the [Google Earth Engine](https://earthengine.google.com), but they provide a pretty bad resolution, 30m for Landsat and 10m for Sentinel, which is unsuitable for this task. Other possible options are Planet Labs and Digital Globe, but their images are not available for free. Planet Labs, though, have their [Education and Research program](https://www.planet.com/markets/education-and-research/) for students and faculties through which limited access can be acquired on the institutional emails. 
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/sample planet image.png)
-
-Fig 1. A sample PlanetScope image tile (3m resolution).
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shiptile.png" alt="" data-position="center" /></a><br>
+  <p>Fig 1. A sample PlanetScope image tile (3m resolution).</p>
+</div>
 
 If you do not have an institutional email or cannot get the access by any means, a few sample images can be downloaded through [this](https://drive.google.com/open?id=1c2-hxBa2eadYaarZVReowA0G9xWuiK7k) link.
 
@@ -28,9 +29,10 @@ If you do not have an institutional email or cannot get the access by any means,
 
 Planet Labs is a private Earth-imaging company providing satellite images at different resolutions. The best part is that they monitor the whole Earth daily, which gives access to a massive amount of data. For this task, PlanetScope satellite was used with images at a resolution of 3m, which is enough to detect big ships in the ocean. The images were downloaded through their python API, which requires the API key. Once you sign up for a Planet account, the API key can be retrieved from the profile [dashboard](https://www.planet.com/account/#/). 
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/getting aoi geojson.png)
-
-Fig 2. The geometry of the Area Of Interest (AOI) can be acquired from the [geojson.io](http://geojson.io/#map=2/20.0/0.0) website.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipgeojson.png" alt="" data-position="center" /></a><br>
+  <p>Fig 2. The geometry of the Area Of Interest (AOI) can be acquired from the <a href="http://geojson.io/#map=2/20.0/0.0">geojson.io</a> website.</p>
+</div>
 
 ```python
 from planet import api
@@ -76,8 +78,7 @@ for item in results.items_iter(no_of_images):
     body = client.download(assets['visual'], callback=callback)
     body.await()
 ```
-
-The code for downloading the Planet image tiles from their python API.
+<p style="text-align:center">The code for downloading the Planet image tiles from their python API.</p>
 
 ## 2. Labeling
 
@@ -346,8 +347,8 @@ The algorithm can be further trained for any object detection dataset by making 
 
 ## References
 
-1. https://pjreddie.com/darknet/yolo/
-2. https://timebutt.github.io/static/how-to-train-yolov2-to-detect-custom-objects/
-3. https://www.learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/
-4. https://towardsdatascience.com/data-science-and-satellite-imagery-985229e1cd2f
+1. <https://pjreddie.com/darknet/yolo/>
+2. <https://timebutt.github.io/static/how-to-train-yolov2-to-detect-custom-objects/>
+3. <https://www.learnopencv.com/training-yolov3-deep-learning-based-custom-object-detector/>
+4. <https://towardsdatascience.com/data-science-and-satellite-imagery-985229e1cd2f>
 5. Redmon, Joseph and Farhadi, Ali. YOLOv3: An Incremental Improvement. arXiv, 2018.
