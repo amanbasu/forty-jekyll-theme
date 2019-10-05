@@ -67,7 +67,7 @@ def segmentation(filename):
     for signal in signals:
         save_fig(signal)
 ```
-The code for segmenting the continuous ECG signals.
+<p style="text-align:center">The code for segmenting the continuous ECG signals.</p>
 
 
 When we read signal from the files, it comes like a continuous wave (represented in the diagram above). So our first step will be to segment these continuous waves into the individual samples, representing just one wave. This is done through the [Christov Segmenter](https://biomedical-engineering-online.biomedcentral.com/articles/10.1186/1475-925X-3-28).
@@ -184,6 +184,7 @@ Give any service account name, select the role as project owner and then create 
   <a href="" class="image"><img src="assets/images/ecgservice2.png" alt="" data-position="center" /></a><br>
   <a href="" class="image"><img src="assets/images/ecgservice3.png" alt="" data-position="center" /></a><br>
 </div>
+
 
 ### Step 5
 The final step is to query the model thus hosted. We will use the [GoogleApiClient](https://developers.google.com/android/reference/com/google/android/gms/common/api/GoogleApiClient) python API for this purpose.
