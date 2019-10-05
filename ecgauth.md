@@ -34,7 +34,9 @@ Now that the theoretical concept is clear, let’s move on to some hands-on. The
 
 The ECG waves are divided into 3 major parts: P, QRS complex, and T. They represent the peaks in the signal and contain the majority of information. The features include the amplitude of the peaks and the time difference between them.
 
-<a href="" class="image"><img src="assets/images/ecgrepresentation.png" alt="" data-position="center" /></a>
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/ecgrepresentation.png" alt="" data-position="center" /></a><br>
+</div>
 
 For this task, ECG-ID Database was used which contains 310 ECG signals from 90 different people. The number of recordings for each person varies from 2 to 20 and contains raw and filtered signals (without noise).
 We’ll use deep learning for this task and therefore don’t need to provide the features explicitly, rather, we’ll use the images of the ECG signals to train a Siamese network and differentiate between them. Where are the images? Let’s create them.
@@ -71,12 +73,9 @@ The code for segmenting the continuous ECG signals.
 When we read signal from the files, it comes like a continuous wave (represented in the diagram above). So our first step will be to segment these continuous waves into the individual samples, representing just one wave. This is done through the Christov Segmenter.
 
 <div style="text-align:center">
-  <a href="" class="image"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a>
+  <a href="" class="image"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a><br>
+  <p>Single ECG wave segmented from the continuous signal.</p>
 </div>
-
-<!-- <a href="" class="image" style="position:absolute; width:100%; height:100%; margin-left:auto; margin-right:auto; align:center;"><img src="assets/images/ecgsignal.png" alt="" data-position="center" /></a> -->
-
-Single ECG wave segmented from the continuous signal.
 
 These individual signals thus segmented are then plotted and saved using matplotlib. For all 90 different people, 50–100 such images were created, making the total of around 6000 images (on average 65 per person).
 The data is read through a Data Loader which returns the pair of half similar and half different ECG images, randomly from the complete dataset. We will use single-channel images with the size of 144x224 for training.
@@ -103,14 +102,16 @@ for i in range(batch_size):
 
 return pairs, targets
 ```
-The code for generating the training batch pairs.
+<p style="text-align:center">The code for generating the training batch pairs.</p>
 
 ## Siamese Network
 
 The word Siamese literally translates to conjoined twins. In deep learning, these networks are used to find the similarity between two objects (images in our case). Usually, the images are passed through a series of convolutions to get their fixed-sized encoded representation. For a fully trained network, if the images are similar, they are going to give a very similar encoded representation and vice versa. By looking at the differences in these encodings, the inputs can be verified. This is the central idea behind the Siamese Networks.
 
-<a href="" class="image"><img src="assets/images/ecgsiamese.png" alt="" data-position="center" /></a>
-Siamese model architecture [reference].
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/ecgsiamese.png" alt="" data-position="center" /></a><br>
+  <p>Siamese model architecture.</p>
+</div>
 
 Here, we have created a convolutional neural network as our model. More details about which can be found on my GitHub repository.
 
@@ -120,8 +121,10 @@ The model training was done on Intel® AI DevCloud. It is a cluster of Intel® X
 
 It took around 3000 iterations to reach the average person-wise validation accuracy of around 85%. Further tweaking of model architecture and training for a long time can surely improve the model. I will leave that to you for now and head on to the deployment.
 
-<a href="" class="image"><img src="assets/images/ecgresult.png" alt="" data-position="center" /></a>
-Figure showing the confidence in recognizing the valid person’s ECG.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/ecgresult.png" alt="" data-position="center" /></a><br>
+  <p>Figure showing the confidence in recognizing the valid person’s ECG.</p>
+</div>
 
 ## Deployment
 
@@ -149,21 +152,25 @@ with tf.keras.backend.get_session() as sess:
         inputs={t.name: t for t in model.inputs},
         outputs={t.name: t for t in model.outputs})
 ```
-The code to convert Keras model to TensorFlow saved model format.
+<p style="text-align:center">The code to convert Keras model to TensorFlow saved model format.</p>
 
 This saved model will receive requests containing the two images which you want to verify and will return an output between 0 and 1, representing the probability of them belonging to the same person.
 
 ### Step 2
 Create a storage bucket and upload your saved model folder inside it. During inference, the model graph and weights are loaded from here.
 
-<a href="" class="image"><img src="assets/images/ecgbucket.png" alt="" data-position="center" /></a>
-Model files stored in the Google Storage Bucket.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/ecgbucket.png" alt="" data-position="center" /></a><br>
+  <p>Model files stored in the Google Storage Bucket.</p>
+</div>
 
 ### Step 3
 Head over to the AI Platform -> Models and create a new model for your project. Inside the model, create a new version.
 
-<a href="" class="image"><img src="assets/images/ecgmodel.png" alt="" data-position="center" /></a>
-New model version on the AI platform.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/ecgmodel.png" alt="" data-position="center" /></a><br>
+  <p>New model version on the AI platform.</p>
+</div>
 
 Check the version of python and TensorFlow in your development environment and provide those details while creating the new model version. In the model URI, give the path of the folder where the saved_model.pb is located. When the model version gets the request, it hits the URI and runs the model for the output. Keep the rest of the options as default and create the version.
 
@@ -172,9 +179,11 @@ For accessing the service, you need to create a service account [6]. To do this,
 
 Give any service account name, select the role as project owner and then create a .json key. This will generate a key pair and download it to your computer. Note down the path of the file just downloaded as we’ll be requiring it during the inference.
 
-<a href="" class="image"><img src="assets/images/ecgservice1.png" alt="" data-position="center" /></a>
-<a href="" class="image"><img src="assets/images/ecgservice2.png" alt="" data-position="center" /></a>
-<a href="" class="image"><img src="assets/images/ecgservice3.png" alt="" data-position="center" /></a>
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/ecgservice1.png" alt="" data-position="center" /></a><br>
+  <a href="" class="image"><img src="assets/images/ecgservice2.png" alt="" data-position="center" /></a><br>
+  <a href="" class="image"><img src="assets/images/ecgservice3.png" alt="" data-position="center" /></a><br>
+</div>
 
 ### Step 5
 The final step is to query the model thus hosted. We will use the GoogleApiClient python API for this purpose.
@@ -205,7 +214,7 @@ else:
     pred = response['predictions'][0]['dense_1/Sigmoid:0'][0]
     print("Similarity between two images: {:.2f}%".format(pred*100))
 ```
-The code to inference the model hosted on GCP
+<p style="text-align:center">The code to inference the model hosted on GCP.</p>
 
 We need to define a few parameters to recognize the model we are querying. They are project, model, and version name. Also, we need to set an environment variable to point to the credentials file (service account key). Fill these details accordingly.
 
