@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: pages
 title: Prostate Segmentation
 description: Segmentation of prostate from MRI scans using DV-Net
 image: assets/images/prostate.png
