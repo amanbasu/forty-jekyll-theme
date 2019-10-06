@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: pages
 title: Self-driving Car
 description: Classifying different parts of land using Machine Learning
 image: assets/images/carimage.jpg
