@@ -1,5 +1,6 @@
 <section id="one" class="tiles">
-  {% for post in site.posts limit:site.tiles-count %}
+  {% assign shuffled_array = site.posts | shuffle %}
+  {% for post in shuffled_array limit:site.tiles-count %}
   {% if site.tiles-source == 'posts' %}
   <article>
     <span class="image">
@@ -12,7 +13,8 @@
   </article>
   {% endif %}
   {% endfor %}
-  {% for page in site.pages limit:site.tiles-count %}
+  {% assign shuffled_array = site.pages | shuffle %}
+  {% for page in shuffled_array limit:site.tiles-count %}
   {% if site.tiles-source == 'pages' and page.show_tile != false %}
   <article>
     <span class="image">
