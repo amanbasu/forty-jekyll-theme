@@ -1,5 +1,5 @@
 ---
-layout: pages
+layout: post
 title: Self-driving Car
 description: Maneuvering an RC car on a track autonomously
 image: assets/images/carimage.jpg
