@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Global Terrorist Attack Classification
+title: Terrorist Attack Classification
 description: Classifying different parts of land using Machine Learning
 image: assets/images/classificationterrorist.png
 nav-menu: true
