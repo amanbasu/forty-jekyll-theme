@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ECG Biometric
+title: ECG Authentication
 description: Using electrocardiogram for biometric authentication
 image: assets/images/1*yVNIt0fqLYeFpjFbWqtqs.png
 nav-menu: true
