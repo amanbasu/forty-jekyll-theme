@@ -15,7 +15,7 @@
   {% endfor %}
   {% assign shuffled_array = site.pages | sample:site.tiles-count %}
   {% for page in shuffled_array %}
-  {% if site.tiles-source == 'pages' and page.show_tile != false %}
+  {% if site.tiles-source == 'pages' and page.show_tile != false and page.description != '' %}
   <article>
     <span class="image">
       <img src="{{ page.image }}" alt="" />
