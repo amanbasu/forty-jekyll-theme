@@ -1,5 +1,23 @@
+---
+layout: post
+title: Land Classification
+description: Classifying different parts of land using Machine Learning
+image: assets/images/1*nyILrq0KnC2YRUvVhqY44A.png
+nav-menu: true
+---
 
+There are multiple satellites that capture the data about the amount of light intensity reflected at different frequencies from the Earth at a very granular geographic level. Some of this information can be used to classify the Earth into different buckets - built-up, barren, green or water. The training data contains different parameters classified into the 4 classes. 
 
+# Column Description
+
+* Numeric columns <b>X1 to X6 and I1 to I6</b> define characteristics about the land piece
+* <b>ClusterID</b> is a categorical column which clusters a type of land together
+* <b>target</b> is the output categorical column which needs to be found for the test dataset
+    * 1 = Green Land
+    * 2 = Water
+    * 3 = Barren Land
+    * 4 = Built-up 
+    
 ```python
 import pandas as pd
 import numpy as np
@@ -7,18 +25,10 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 ```
 
-
 ```python
 df = pd.read_csv('land_train.csv') # loading the dataset
-```
-
-
-```python
 df.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -144,36 +154,23 @@ df.head()
 </table>
 </div>
 
-
-
-
 ```python
 dfs = df.sample(frac=0.1).reset_index(drop=True) # shuffles the data and takes a fraction of it
 dfs.shape
 ```
-
-
-
-
     (48800, 14)
-
-
 
 # Column level preprocessing
 ### Scatter Plot
-
 
 ```python
 # scatter plot of a part of data
 pd.plotting.scatter_matrix(dfs[['X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'I1', 'I2', 'I3', 'I4', 'I5', 'I6']], figsize=(17,10));
 ```
 
-
 ![png](output_5_0.png)
 
-
 ### Correlation Plot
-
 
 ```python
 import seaborn as sns
@@ -196,9 +193,7 @@ cmap = sns.diverging_palette(220, 10, as_cmap=True)
 sns.heatmap(corr, mask=mask, cmap=cmap, vmax=1, center=0.5, square=True, linewidths=.5, cbar_kws={"shrink": .5});
 ```
 
-
 ![png](output_7_0.png)
-
 
 From the scatter plot and correlation plot, we can conclude that-
 - The $X$ features are almost linearly correlated with each other. Moreover, they show similar correlation with $I$ features. Therefore, we can merge them into one (average).
@@ -212,22 +207,14 @@ Remaining columns: $X$<sub>avg</sub>, $I$<sub>14</sub>, $I$<sub>3</sub>, $I$<sub
 
 ### Selecting features
 
-
 ```python
 # preprocessing columns
 df['X'] = df[['X1', 'X2', 'X3', 'X4', 'X5', 'X6']].mean(axis=1) # merging all X features in one
 df = df.drop(['X1', 'X2', 'X3', 'X4', 'X5', 'X6'], axis=1)      # dropping the rest
 df['I14'] = df[['I1', 'I4']].mean(axis=1)                       # averaging I1 and I4
 df = df.drop(['I1', 'I4', 'I2', 'I5'], axis=1)                  # dropping the rest
-```
-
-
-```python
 df.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -305,22 +292,15 @@ df.head()
 </table>
 </div>
 
-
-
-
 ```python
 # df.to_csv('land_train_pruned.csv', index=False) # saving the data
 ```
 
 # Row level preprocessing
 
-
 ```python
 df.describe()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -425,16 +405,11 @@ df.describe()
 </table>
 </div>
 
-
-
-
 ```python
 df.target.value_counts().plot('bar');
 ```
 
-
 ![png](output_15_0.png)
-
 
 Samples per example: <br>
 1: 472987 (97%) <br>
@@ -452,7 +427,6 @@ Therefore, we need to balance the classes and for this, the approach used is giv
 
 ### Normalizing features
 
-
 ```python
 from sklearn import preprocessing
 
@@ -460,20 +434,10 @@ x = df[['I3', 'I6', 'I14', 'X']].values # returns a numpy array
 min_max_scaler = preprocessing.MinMaxScaler()
 x_scaled = min_max_scaler.fit_transform(x)
 df_n = pd.DataFrame(x_scaled, columns=['I3', 'I6', 'I14', 'X'])
-```
-
-
-```python
 df_norm = df[['clusterID', 'target']].join(df_n)
-```
 
-
-```python
 df_norm.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -551,43 +515,23 @@ df_norm.head()
 </table>
 </div>
 
-
-
 ### Splitting data into 10 parts 
-
 
 ```python
 # separating classes
 df_1 = df_norm[df_norm.target==1]
 df_1 = df_1.sample(frac=1).reset_index(drop=True) # shuffling rows
 df_3 = df_norm[df_norm.target==3]
-```
 
-
-```python
 df_1.shape[0], df_3.shape[0]
 ```
-
-
-
-
     (472987, 14630)
-
-
 
 
 ```python
 df_1_split = np.split(df_1, np.arange(47300, 472987, 47300),axis=0) # splits dataframe (of Target=1) in 10 
-```
-
-
-```python
 [i.shape for i in df_1_split]
 ```
-
-
-
-
     [(47300, 6),
      (47300, 6),
      (47300, 6),
@@ -599,35 +543,18 @@ df_1_split = np.split(df_1, np.arange(47300, 472987, 47300),axis=0) # splits dat
      (47300, 6),
      (47287, 6)]
 
-
-
-
 ```python
 df_3_dup = pd.concat([df_3]*3, ignore_index=True) # duplicate data (of Target=3) 3 times
 df_3_dup.shape
 ```
-
-
-
-
     (43890, 6)
-
-
-
 
 ```python
 for i in range(len(df_1_split)):
     df_1_split[i] = df_1_split[i].append(df_3_dup, ignore_index=True) # merge Target 1 and 3
-```
 
-
-```python
 [i.shape for i in df_1_split]
 ```
-
-
-
-
     [(91190, 6),
      (91190, 6),
      (91190, 6),
@@ -639,17 +566,11 @@ for i in range(len(df_1_split)):
      (91190, 6),
      (91177, 6)]
 
-
-
-
 ```python
 df_1_split[9].target.value_counts().plot('bar');
 ```
 
-
 ![png](output_29_0.png)
-
-
 
 ```python
 # saving all parts
@@ -659,26 +580,15 @@ df_1_split[9].target.value_counts().plot('bar');
 
 # Preprocessing Test Data
 
-
 ```python
 df_test = pd.read_csv('land_test.csv')
 df_test.shape
 ```
-
-
-
-
     (2000000, 13)
-
-
-
 
 ```python
 df_test.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -798,9 +708,6 @@ df_test.head()
 </table>
 </div>
 
-
-
-
 ```python
 # preprocessing columns
 df_test['X'] = df_test[['X1', 'X2', 'X3', 'X4', 'X5', 'X6']].mean(axis=1) # merging all X features in one
@@ -809,33 +716,18 @@ df_test['I14'] = df_test[['I1', 'I4']].mean(axis=1)                       # aver
 df_test = df_test.drop(['I1', 'I4', 'I2', 'I5'], axis=1)                  # dropping the rest
 ```
 
-
 ```python
 x_test = df_test[['I3', 'I6', 'I14', 'X']].values # returns a numpy array
 x_test_scaled = min_max_scaler.transform(x_test)  # applying scaler
 df_test_n = pd.DataFrame(x_test_scaled, columns=['I3', 'I6', 'I14', 'X'])
 df_test_norm = df_test[['clusterID']].join(df_test_n)
-```
-
-
-```python
 df_test_norm.shape
 ```
-
-
-
-
     (2000000, 5)
-
-
-
 
 ```python
 df_test_norm.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -907,15 +799,11 @@ df_test_norm.head()
 </table>
 </div>
 
-
-
-
 ```python
 # df_test_norm.to_csv('land_test_preprocessed.csv')
 ```
 
 # Model
-
 
 ```python
 from sklearn.tree import DecisionTreeClassifier
@@ -931,14 +819,12 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 from sklearn.metrics import confusion_matrix
 ```
 
-
 ```python
 # different classifiers
 num_models = [KNeighborsClassifier(n_neighbors=5), svm.SVC(), LogisticRegression(), GaussianNB(),
               AdaBoostClassifier(), BernoulliNB(), MLPClassifier(),
               RandomForestClassifier(), DecisionTreeClassifier('entropy')]
 ```
-
 
 ```python
 # training 9 different model on different data splits
@@ -958,7 +844,6 @@ for i in range(9):
     
     print(f'Model {i+1} trained.', end='\r')
 ```
-
     Model 9 trained.
 
 
@@ -971,7 +856,6 @@ x_test = df_test.drop('target', axis=1).values
 y_test = df_test.target.values
 ```
 
-
 ```python
 # making predictions
 predictions = []
@@ -979,7 +863,6 @@ for i in range(9):
     predictions.append(list(models[i].predict(x_test)))
 predictions = np.array(predictions)
 ```
-
 
 ```python
 # getting the mojority Class
@@ -990,7 +873,6 @@ for i in range(predictions.shape[1]):
     pred_maj.append(values[np.argmax(counts)])
 pred_maj = np.array(pred_maj)
 ```
-
 
 ```python
 print('Accuracy: {:.2f}%'.format(np.mean(pred_maj==y_test)*100))
@@ -1004,16 +886,12 @@ plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.title('Confusion matrix');
 ```
-
     Accuracy: 97.58%
     Precision: 0.98
     Recall: 0.97
     F1 score: 0.98
 
-
-
 ![png](output_46_1.png)
-
 
 # Results
 
@@ -1033,15 +911,11 @@ plt.title('Confusion matrix');
 
 # Getting predictions for test set
 
-
 ```python
 df_test_set = pd.read_csv("land_test_preprocessed.csv")
 df_test_set.drop('Unnamed: 0', inplace=True, axis=1)
 df_test_set.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -1132,28 +1006,15 @@ for i in range(predictions.shape[1]):
     (values, counts) = np.unique(predictions[:,i], return_counts=True)
     pred_maj.append(values[np.argmax(counts)])
 pred_maj = np.array(pred_maj)
-```
 
-
-```python
 pred_maj.shape
 ```
-
-
-
-
     (2000000,)
-
-
-
 
 ```python
 df_sub = pd.DataFrame(pred_maj, columns=['target'])
 df_sub.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -1201,27 +1062,16 @@ df_sub.head()
 </table>
 </div>
 
-
-
-
 ```python
 df_sub.to_csv('submission.csv', index=False)
 ```
 
 # Analysis
 
-
 ```python
 dfa = pd.read_csv('land_train_split_1.csv')
-```
-
-
-```python
 dfa.groupby(dfa.target).describe().T
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -1456,9 +1306,6 @@ dfa.groupby(dfa.target).describe().T
 </table>
 </div>
 
-
-
-
 ```python
 estimator = models[0].estimators_[5]
 
@@ -1476,25 +1323,15 @@ import pydot
 graph.write_png('somefile.png')
 ```
 
-
 ```python
 # taking sum of all GINI indexes
 a = models[0].feature_importances_
 for i in range(8):
     a += models[i+1].feature_importances_
-```
 
-
-```python
 a
 ```
-
-
-
-
     array([2.10152634, 0.58177282, 3.40019577, 2.06218839, 0.85431669])
-
-
 
 The model cannot be visualized because of its size, so I have taken the sum of <b>gini index</b> of attributes, which are shown below.<br>
 clusterID: 2.10 <br>
@@ -1504,8 +1341,3 @@ I14: 2.06 <br>
 X: 0.85 <br>
 <hr>
 Clearly, $I6$ classifies the data best.
-
-
-```python
-
-```
