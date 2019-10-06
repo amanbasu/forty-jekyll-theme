@@ -44,7 +44,6 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>eventid</th>
       <th>iyear</th>
       <th>imonth</th>
       <th>iday</th>
@@ -52,13 +51,7 @@ df.head()
       <th>extended</th>
       <th>resolution</th>
       <th>country</th>
-      <th>country_txt</th>
-      <th>region</th>
       <th>...</th>
-      <th>addnotes</th>
-      <th>scite1</th>
-      <th>scite2</th>
-      <th>scite3</th>
       <th>dbsource</th>
       <th>INT_LOG</th>
       <th>INT_IDEO</th>
@@ -70,7 +63,6 @@ df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>197000000001</td>
       <td>1970</td>
       <td>7</td>
       <td>2</td>
@@ -78,13 +70,7 @@ df.head()
       <td>0</td>
       <td>NaT</td>
       <td>58</td>
-      <td>Dominican Republic</td>
-      <td>2</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>PGIS</td>
       <td>0</td>
       <td>0</td>
@@ -94,7 +80,6 @@ df.head()
     </tr>
     <tr>
       <th>1</th>
-      <td>197000000002</td>
       <td>1970</td>
       <td>0</td>
       <td>0</td>
@@ -102,13 +87,7 @@ df.head()
       <td>0</td>
       <td>NaT</td>
       <td>130</td>
-      <td>Mexico</td>
-      <td>1</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>PGIS</td>
       <td>0</td>
       <td>1</td>
@@ -118,7 +97,6 @@ df.head()
     </tr>
     <tr>
       <th>2</th>
-      <td>197001000001</td>
       <td>1970</td>
       <td>1</td>
       <td>0</td>
@@ -126,13 +104,7 @@ df.head()
       <td>0</td>
       <td>NaT</td>
       <td>160</td>
-      <td>Philippines</td>
-      <td>5</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>PGIS</td>
       <td>-9</td>
       <td>-9</td>
@@ -142,7 +114,6 @@ df.head()
     </tr>
     <tr>
       <th>3</th>
-      <td>197001000002</td>
       <td>1970</td>
       <td>1</td>
       <td>0</td>
@@ -150,13 +121,7 @@ df.head()
       <td>0</td>
       <td>NaT</td>
       <td>78</td>
-      <td>Greece</td>
-      <td>8</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>PGIS</td>
       <td>-9</td>
       <td>-9</td>
@@ -166,7 +131,6 @@ df.head()
     </tr>
     <tr>
       <th>4</th>
-      <td>197001000003</td>
       <td>1970</td>
       <td>1</td>
       <td>0</td>
@@ -174,13 +138,7 @@ df.head()
       <td>0</td>
       <td>NaT</td>
       <td>101</td>
-      <td>Japan</td>
-      <td>4</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>PGIS</td>
       <td>-9</td>
       <td>-9</td>
@@ -205,28 +163,6 @@ df.isnull().any()  # checking columns with null value
     extended              False
     resolution             True
     country               False
-    country_txt           False
-    region                False
-    region_txt            False
-    provstate              True
-    city                   True
-    latitude               True
-    longitude              True
-    specificity            True
-    vicinity              False
-    location               True
-    summary                True
-    crit1                 False
-    crit2                 False
-    crit3                 False
-    doubtterr              True
-    alternative            True
-    alternative_txt        True
-    multiple               True
-    success               False
-    suicide               False
-    attacktype1           False
-    attacktype1_txt       False
                           ...  
     propextent             True
     propextent_txt         True
@@ -236,25 +172,6 @@ df.isnull().any()  # checking columns with null value
     nhostkid               True
     nhostkidus             True
     nhours                 True
-    ndays                  True
-    divert                 True
-    kidhijcountry          True
-    ransom                 True
-    ransomamt              True
-    ransomamtus            True
-    ransompaid             True
-    ransompaidus           True
-    ransomnote             True
-    hostkidoutcome         True
-    hostkidoutcome_txt     True
-    nreleased              True
-    addnotes               True
-    scite1                 True
-    scite2                 True
-    scite3                 True
-    dbsource              False
-    INT_LOG               False
-    INT_IDEO              False
     INT_MISC              False
     INT_ANY               False
     related                True
@@ -302,19 +219,13 @@ df2.head()
       <th>provstate</th>
       <th>city</th>
       <th>latitude</th>
-      <th>longitude</th>
-      <th>doubtterr</th>
       <th>...</th>
-      <th>targtype1</th>
-      <th>target1</th>
       <th>natlty1</th>
       <th>gname</th>
       <th>weaptype1</th>
       <th>property</th>
       <th>ishostkid</th>
       <th>INT_LOG</th>
-      <th>INT_IDEO</th>
-      <th>INT_ANY</th>
     </tr>
   </thead>
   <tbody>
@@ -328,18 +239,12 @@ df2.head()
       <td>-1</td>
       <td>Santo Domingo</td>
       <td>18.456792</td>
-      <td>-69.951164</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>14</td>
-      <td>Julio Guzman</td>
       <td>58.0</td>
       <td>MANO-D</td>
       <td>13</td>
       <td>0</td>
       <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -352,19 +257,13 @@ df2.head()
       <td>0</td>
       <td>Mexico city</td>
       <td>19.371887</td>
-      <td>-99.086624</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>7</td>
-      <td>Nadine Chaval, daughter</td>
       <td>21.0</td>
       <td>23rd of September Communist League</td>
       <td>13</td>
       <td>0</td>
       <td>1.0</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
@@ -376,19 +275,13 @@ df2.head()
       <td>1</td>
       <td>Unknown</td>
       <td>15.478598</td>
-      <td>120.599741</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>10</td>
-      <td>Employee</td>
       <td>217.0</td>
       <td>Unknown</td>
       <td>13</td>
       <td>0</td>
       <td>0.0</td>
       <td>-9</td>
-      <td>-9</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -400,19 +293,13 @@ df2.head()
       <td>2</td>
       <td>Athens</td>
       <td>37.997490</td>
-      <td>23.762728</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>7</td>
-      <td>U.S. Embassy</td>
       <td>217.0</td>
       <td>Unknown</td>
       <td>6</td>
       <td>1</td>
       <td>0.0</td>
       <td>-9</td>
-      <td>-9</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -424,19 +311,13 @@ df2.head()
       <td>3</td>
       <td>Fukouka</td>
       <td>33.580412</td>
-      <td>130.396361</td>
-      <td>-9.0</td>
       <td>...</td>
-      <td>7</td>
-      <td>U.S. Consulate</td>
       <td>217.0</td>
       <td>Unknown</td>
       <td>8</td>
       <td>1</td>
       <td>0.0</td>
       <td>-9</td>
-      <td>-9</td>
-      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -513,19 +394,13 @@ df.head()
       <th>provstate</th>
       <th>city</th>
       <th>latitude</th>
-      <th>longitude</th>
-      <th>doubtterr</th>
       <th>...</th>
-      <th>targtype1</th>
-      <th>target1</th>
       <th>natlty1</th>
       <th>gname</th>
       <th>weaptype1</th>
       <th>property</th>
       <th>ishostkid</th>
       <th>INT_LOG</th>
-      <th>INT_IDEO</th>
-      <th>INT_ANY</th>
     </tr>
   </thead>
   <tbody>
@@ -539,18 +414,12 @@ df.head()
       <td>0</td>
       <td>0</td>
       <td>18.456792</td>
-      <td>-69.951164</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>14</td>
-      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>13</td>
       <td>0</td>
       <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -563,19 +432,13 @@ df.head()
       <td>1</td>
       <td>1</td>
       <td>19.371887</td>
-      <td>-99.086624</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>7</td>
-      <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>13</td>
       <td>0</td>
       <td>1.0</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
@@ -587,19 +450,13 @@ df.head()
       <td>2</td>
       <td>2</td>
       <td>15.478598</td>
-      <td>120.599741</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>10</td>
-      <td>2</td>
       <td>2</td>
       <td>2</td>
       <td>13</td>
       <td>0</td>
       <td>0.0</td>
       <td>-9</td>
-      <td>-9</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
@@ -611,19 +468,13 @@ df.head()
       <td>3</td>
       <td>3</td>
       <td>37.997490</td>
-      <td>23.762728</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>7</td>
-      <td>3</td>
       <td>2</td>
       <td>2</td>
       <td>6</td>
       <td>1</td>
       <td>0.0</td>
       <td>-9</td>
-      <td>-9</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
@@ -635,19 +486,13 @@ df.head()
       <td>4</td>
       <td>4</td>
       <td>33.580412</td>
-      <td>130.396361</td>
-      <td>-9.0</td>
       <td>...</td>
-      <td>7</td>
-      <td>4</td>
       <td>2</td>
       <td>2</td>
       <td>8</td>
       <td>1</td>
       <td>0.0</td>
       <td>-9</td>
-      <td>-9</td>
-      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -763,13 +608,7 @@ df2.head()
       <th>5</th>
       <th>6</th>
       <th>7</th>
-      <th>8</th>
-      <th>9</th>
       <th>...</th>
-      <th>13</th>
-      <th>14</th>
-      <th>15</th>
-      <th>16</th>
       <th>17</th>
       <th>18</th>
       <th>19</th>
@@ -789,13 +628,7 @@ df2.head()
       <td>0.000708</td>
       <td>0.000082</td>
       <td>0.572701</td>
-      <td>0.824064</td>
-      <td>0.9</td>
       <td>...</td>
-      <td>0.000</td>
-      <td>0.428571</td>
-      <td>0.000035</td>
-      <td>0.009302</td>
       <td>1.000000</td>
       <td>0.9</td>
       <td>0.9</td>
@@ -813,13 +646,7 @@ df2.head()
       <td>0.001062</td>
       <td>0.000109</td>
       <td>0.782926</td>
-      <td>0.496657</td>
-      <td>0.9</td>
       <td>...</td>
-      <td>0.250</td>
-      <td>0.285714</td>
-      <td>0.000047</td>
-      <td>0.009302</td>
       <td>0.363636</td>
       <td>1.0</td>
       <td>0.9</td>
@@ -837,13 +664,7 @@ df2.head()
       <td>0.001416</td>
       <td>0.000136</td>
       <td>0.741690</td>
-      <td>0.857187</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>0.750</td>
-      <td>0.285714</td>
-      <td>0.000058</td>
-      <td>0.009302</td>
       <td>0.545455</td>
       <td>1.0</td>
       <td>0.9</td>
@@ -861,13 +682,7 @@ df2.head()
       <td>0.002478</td>
       <td>0.000218</td>
       <td>0.781007</td>
-      <td>0.003068</td>
-      <td>1.0</td>
       <td>...</td>
-      <td>0.250</td>
-      <td>0.952381</td>
-      <td>0.000093</td>
-      <td>0.009302</td>
       <td>0.363636</td>
       <td>1.0</td>
       <td>0.9</td>
@@ -885,13 +700,7 @@ df2.head()
       <td>0.003540</td>
       <td>0.000327</td>
       <td>0.819274</td>
-      <td>0.458544</td>
-      <td>0.0</td>
       <td>...</td>
-      <td>0.375</td>
-      <td>0.238095</td>
-      <td>0.000151</td>
-      <td>0.009302</td>
       <td>0.272727</td>
       <td>0.9</td>
       <td>0.9</td>
