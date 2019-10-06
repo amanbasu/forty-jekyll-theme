@@ -31,19 +31,6 @@ df.head()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -200,12 +187,12 @@ sns.heatmap(corr, mask=mask, cmap=cmap, vmax=1, center=0.5, square=True, linewid
 </div>
 
 From the scatter plot and correlation plot, we can conclude that-
-- The $ X $ features are almost linearly correlated with each other. Moreover, they show similar correlation with $ I $ features. Therefore, we can merge them into one (average).
-- $ I5 $ is almost constant and shows less variance (see the histogram). Therefore, it can be dropped.
-- $ I1 $ and $ I4 $ are highly correlated. They can be merged (average).
-- $ I2 $ shows inverse correlation with $ I1 $. It can be dropped.
+- The **X** features are almost linearly correlated with each other. Moreover, they show similar correlation with **I** features. Therefore, we can merge them into one (average).
+- **I5** is almost constant and shows less variance (see the histogram). Therefore, it can be dropped.
+- **I1** and $ I4 $ are highly correlated. They can be merged (average).
+- **I2** shows inverse correlation with **I1**. It can be dropped.
 
-Remaining columns: $ X $<sub>avg</sub>, $ I $<sub>14</sub>, $ I $<sub>3</sub>, $ I $<sub>6</sub>. 
+Remaining columns: **X**<sub>avg</sub>, **I**<sub>14</sub>, **I**<sub>3</sub>, **I**<sub>6</sub>. 
 
 #### Note: Highly correlated columns are dropped since they provide no extra information to the model and hampers the performance.
 
@@ -221,19 +208,6 @@ df.head()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -307,19 +281,6 @@ df.describe()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -446,19 +407,6 @@ df_norm.head()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -599,19 +547,6 @@ df_test.head()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -738,19 +673,6 @@ df_test_norm.head()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -928,19 +850,6 @@ df_test_set.head()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1027,19 +936,6 @@ df_sub.head()
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1084,19 +980,6 @@ dfa.groupby(dfa.target).describe().T
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-    
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1350,4 +1233,4 @@ I6: 3.40 <br>
 I14: 2.06 <br>
 X: 0.85 <br>
 <hr>
-Clearly, $ I6 $ classifies the data best.
+Clearly, **I6** classifies the data best.
