@@ -218,7 +218,6 @@ df2.head()
       <th>region</th>
       <th>provstate</th>
       <th>city</th>
-      <th>latitude</th>
       <th>...</th>
       <th>natlty1</th>
       <th>gname</th>
@@ -238,7 +237,6 @@ df2.head()
       <td>2</td>
       <td>-1</td>
       <td>Santo Domingo</td>
-      <td>18.456792</td>
       <td>...</td>
       <td>58.0</td>
       <td>MANO-D</td>
@@ -256,7 +254,6 @@ df2.head()
       <td>1</td>
       <td>0</td>
       <td>Mexico city</td>
-      <td>19.371887</td>
       <td>...</td>
       <td>21.0</td>
       <td>23rd of September Communist League</td>
@@ -274,7 +271,6 @@ df2.head()
       <td>5</td>
       <td>1</td>
       <td>Unknown</td>
-      <td>15.478598</td>
       <td>...</td>
       <td>217.0</td>
       <td>Unknown</td>
@@ -292,7 +288,6 @@ df2.head()
       <td>8</td>
       <td>2</td>
       <td>Athens</td>
-      <td>37.997490</td>
       <td>...</td>
       <td>217.0</td>
       <td>Unknown</td>
@@ -310,7 +305,6 @@ df2.head()
       <td>4</td>
       <td>3</td>
       <td>Fukouka</td>
-      <td>33.580412</td>
       <td>...</td>
       <td>217.0</td>
       <td>Unknown</td>
