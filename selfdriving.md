@@ -15,7 +15,9 @@ The bluetooth controlled car was driven on an indoor track and the training data
 3. Right (R)
 4. Stop  (S)
 
-<img src="assets/images/trackimage1.jpg" width="270px" height="270px"/> <img src="assets/images/trackimage2.jpg" width="270px" height="270px"/> <img src="assets/images/trackimage3.jpg" width="270px" height="270px"/>
+<div style="text-align:center">
+  <img class="image" src="assets/images/trackimage1.jpg" width="270px" height="270px"/> <img class="image" src="assets/images/trackimage2.jpg" width="270px" height="270px"/> <img class="image" src="assets/images/trackimage3.jpg" width="270px" height="270px"/>
+</div>
 
 ### Image Processing
 In order to reduce the computation, images were resized from 480x640 to 24x32 pixels.
