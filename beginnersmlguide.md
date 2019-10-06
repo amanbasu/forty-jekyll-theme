@@ -1,5 +1,5 @@
 ---
-layout: pages
+layout: post
 title: Deep Learning Resources
 description: Curated list of study material and tutorials for AI
 image: assets/images/aiimage.jpg
