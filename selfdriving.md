@@ -1,7 +1,7 @@
 ---
 layout: pages
 title: Self-driving Car
-description: Classifying different parts of land using Machine Learning
+description: Maneuvering an RC car on a track autonomously
 image: assets/images/carimage.jpg
 nav-menu: true
 ---
