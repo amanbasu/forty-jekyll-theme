@@ -189,7 +189,7 @@ sns.heatmap(corr, mask=mask, cmap=cmap, vmax=1, center=0.5, square=True, linewid
 From the scatter plot and correlation plot, we can conclude that-
 - The **X** features are almost linearly correlated with each other. Moreover, they show similar correlation with **I** features. Therefore, we can merge them into one (average).
 - **I5** is almost constant and shows less variance (see the histogram). Therefore, it can be dropped.
-- **I1** and $ I4 $ are highly correlated. They can be merged (average).
+- **I1** and **I4** are highly correlated. They can be merged (average).
 - **I2** shows inverse correlation with **I1**. It can be dropped.
 
 Remaining columns: **X**<sub>avg</sub>, **I**<sub>14</sub>, **I**<sub>3</sub>, **I**<sub>6</sub>. 
@@ -271,7 +271,7 @@ df.head()
 </div>
 
 ```python
-# df.to_csv('land_train_pruned.csv', index=False) # saving the data
+df.to_csv('land_train_pruned.csv', index=False) # saving the data
 ```
 
 # Row level preprocessing
@@ -382,7 +382,7 @@ Samples per example: <br>
 1: 472987 (97%) <br>
 2: 0 <br>
 3: 14630 <br>
-4: 381 <hr>
+4: 381 <br>
 This clearly shows the imbalance in classes. While training on such data even if the model predits <b>class 1</b> everytime, the accuracy will be 97%.
 Therefore, we need to balance the classes and for this, the approach used is given below.
 
@@ -530,8 +530,8 @@ df_1_split[9].target.value_counts().plot('bar');
 
 ```python
 # saving all parts
-# for i in range(len(df_1_split)):
-#     df_1_split[i].to_csv(f'land_train_split_{i+1}.csv', index=False)
+for i in range(len(df_1_split)):
+    df_1_split[i].to_csv(f'land_train_split_{i+1}.csv', index=False)
 ```
 
 # Preprocessing Test Data
@@ -730,7 +730,7 @@ df_test_norm.head()
 </div>
 
 ```python
-# df_test_norm.to_csv('land_test_preprocessed.csv')
+df_test_norm.to_csv('land_test_preprocessed.csv')
 ```
 
 # Model
