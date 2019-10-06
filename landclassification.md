@@ -2,7 +2,7 @@
 layout: post
 title: Land Classification
 description: Classifying different parts of land using Machine Learning
-image: assets/images/landclass.png
+image: assets/images/classificationland.png
 nav-menu: true
 ---
 
