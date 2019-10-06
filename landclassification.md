@@ -168,7 +168,9 @@ dfs.shape
 pd.plotting.scatter_matrix(dfs[['X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'I1', 'I2', 'I3', 'I4', 'I5', 'I6']], figsize=(17,10));
 ```
 
-![png](output_5_0.png)
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/landoutput1.png" alt="" data-position="center" /></a><br>
+</div>
 
 ### Correlation Plot
 
@@ -193,7 +195,9 @@ cmap = sns.diverging_palette(220, 10, as_cmap=True)
 sns.heatmap(corr, mask=mask, cmap=cmap, vmax=1, center=0.5, square=True, linewidths=.5, cbar_kws={"shrink": .5});
 ```
 
-![png](output_7_0.png)
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/landoutput1.png" alt="" data-position="center" /></a><br>
+</div>
 
 From the scatter plot and correlation plot, we can conclude that-
 - The $ X $ features are almost linearly correlated with each other. Moreover, they show similar correlation with $ I $ features. Therefore, we can merge them into one (average).
@@ -409,7 +413,9 @@ df.describe()
 df.target.value_counts().plot('bar');
 ```
 
-![png](output_15_0.png)
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/landoutput3.png" alt="" data-position="center" /></a><br>
+</div>
 
 Samples per example: <br>
 1: 472987 (97%) <br>
@@ -570,7 +576,9 @@ for i in range(len(df_1_split)):
 df_1_split[9].target.value_counts().plot('bar');
 ```
 
-![png](output_29_0.png)
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/landoutput4.png" alt="" data-position="center" /></a><br>
+</div>
 
 ```python
 # saving all parts
@@ -891,7 +899,9 @@ plt.title('Confusion matrix');
     Recall: 0.97
     F1 score: 0.98
 
-![png](output_46_1.png)
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/landoutput5.png" alt="" data-position="center" /></a><br>
+</div>
 
 # Results
 
