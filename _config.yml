@@ -15,7 +15,7 @@ phone: +91 75740-14476
 
 # homepage tiles
 tiles-source: pages # accepts "posts" or "pages"
-tiles-count: 12
+tiles-count: 13
 
 # social settings
 500px_url:
