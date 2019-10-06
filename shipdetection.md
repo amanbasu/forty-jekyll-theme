@@ -90,9 +90,10 @@ Note: if you don't want to label the images, you can download any public dataset
 
 Labelme is a python based open-sourced tool to annotate the image data for object detection, segmentation, and various other tasks. It provides the functionality to load an image; draw shapes like line, circle, rectangle or polygon over the areas of interest; and then save the annotation in `.json` format including the metadata of the image and the annotation information like their shape, geometry, category, etc. 
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/labelme image.png)
-
-Fig 3. LabelMe annotation tool.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shiplabelme.png" alt="" data-position="center" /></a><br>
+  <p>Fig 3. LabelMe annotation tool.</p>
+</div>
 
 Around 25 Planet image tiles were annotated which were taken from various seaports of the world. There was only one object category, i.e., ship, which made the annotation easier. This could be further extended to ship categories like containers, navy, cargo, passenger, fishing vessels, etc. but requires a little more effort.
 
@@ -177,28 +178,30 @@ for file in glob.glob(image_folder+'/*.json'):
         
     save_files(image, label, info)
 ```
-
-The code for dividing the labeled Planet tiles into chips.
+<p style="text-align:center">The code for dividing the labeled Planet tiles into chips.</p>
 
 YOLOv3 requires information about the bounding box to be stored in a `.txt` file. Every object is stored in a separate line where five numbers represent each object. Example: `0 0.45 0.55 0.20 0.11`. They are defined in order: object category number, x, and y coordinate of the object center, width, and height of the object. All numbers except the object number, are scaled to [0, 1] by dividing it by the size of the image (512 in our case). Since there was only one category to be detected, the object number in every label file was set to `0`. 
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/label detail.png)
-
-Fig 4. Representation of the object measurements as stored in the label file.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipdemo.png" alt="" data-position="center" /></a><br>
+  <p>Fig 4. Representation of the object measurements as stored in the label file.</p>
+</div>
 
 ## 3. YOLO algorithm
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/yolo_overpass_output.gif)
-
-Fig 5. The predictions from the YOLO model.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipyolo.gif" alt="" data-position="center" /></a><br>
+  <p>Fig 5. The predictions from the YOLO model.</p>
+</div>
 
 I'll be providing a brief introduction to the YOLO algorithm, for a detailed analysis I would suggest you refer [this](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088) link. Also, here's a [link](https://arxiv.org/pdf/1804.02767.pdf) for the original YOLOv3 paper, which is their latest version. 
 
 You Only Look Once is an object detection algorithm touted to be one of the fastest. It was trained on the [COCO](http://cocodataset.org/#home) dataset and achieved a mean Average Precision (mAP) of 33.0 at the speed of 51ms per image on Titan X GPU, which is pretty good. The major highlight of the algorithm is that it divides the input image into several individual grids, and each grid predicts the objects inside it. This way, the whole image is processed at once, and the inference time is reduced.
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/yolo_design.jpg)
-
-Fig 6. A representation of the YOLO object detection pipeline.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipyolof.jpg" alt="" data-position="center" /></a><br>
+  <p>Fig 6. A representation of the YOLO object detection pipeline.</p>
+</div>
 
 The model is trained on the [Darknet](https://pjreddie.com/darknet/) Framework, which is an open source neural network framework written in C and CUDA. It is fast, easy to install, and supports CPU and GPU computation. For the ship detection task, we'll use the same framework. The next sections will guide you through detecting objects with the YOLO system using a pre-trained model.
 
@@ -211,14 +214,12 @@ git clone https://github.com/pjreddie/darknet
 cd darknet
 make
 ```
-
-Get the pre-trained weights from here.
+<p style="text-align:center">Get the pre-trained weights from here.</p>
 
 ```bash
 wget https://pjreddie.com/media/files/darknet53.conv.74
 ```
-
-Try running the detector to confirm the installation.
+<p style="text-align:center">Try running the detector to confirm the installation.</p>
 
 ```bash
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
@@ -226,9 +227,10 @@ Try running the detector to confirm the installation.
 
 You'll get an output like the one shown in Fig. 7 and a file `predictions.jpg` will be stored as the output.
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/yolo_output.png)
-
-Fig 7. The output after running the detector.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipoutput.png" alt="" data-position="center" /></a><br>
+  <p>Fig 7. The output after running the detector.</p>
+</div>
 
 So far, so good. Once the darknet is set up, some files are needed to be added for training on the custom data.
 
@@ -242,23 +244,26 @@ Darknet requires certain files to know how and what to train. We’ll be creatin
 
 `.names` file contains the name of the object categories you want to detect. If you remember, earlier in the tutorial we provided `0` in the label file which represents the index of the ship. Same order has to be followed while writing in this file. Now, since we have got only one object category, the file will look like the one shown below. 
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/ship_names.png)
-
-Fig 8. The file containing the name of the object categories to be detected by the algorithm.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipnames.png" alt="" data-position="center" /></a><br>
+  <p>Fig 8. The file containing the name of the object categories to be detected by the algorithm.</p>
+</div>
 
 This name is shown over the bounding box in the output. For more than one object, every name has to be written in a separate line.
 
 `.data` file contains information about the training data. 
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/ship_data_image.png)
-
-Fig 9. The file containing some information about the input data and backup paths.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipdata.png" alt="" data-position="center" /></a><br>
+  <p>Fig 9. The file containing some information about the input data and backup paths.</p>
+</div>
 
 The details in this file are pretty much self-explanatory. `names` variable will contain the path to the object names file you just defined. `backup` stores the checkpoint of the model during training. The `train.txt` and `test.txt` files will contain the path to your training and testing images. And will look something like this:
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/train_test.png)
-
-Fig 10. The distribution of training and test images. Both absolute and relative paths will work, but make sure they are valid.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipfiles.png" alt="" data-position="center" /></a><br>
+  <p>Fig 10. The distribution of training and test images. Both absolute and relative paths will work, but make sure they are valid.</p>
+</div>
 
 The final step is to set up the `.cfg` file which contains the information about the YOLO network architecture. For that, just copy the `cfg/yolov3.cfg` file in the darknet folder, paste it as `cfg/yolov3-ship.cfg`, and make the following changes:
 
@@ -274,9 +279,10 @@ The final step is to set up the `.cfg` file which contains the information about
 
 4. Also, replace the `filters=255` line by `filters=18` each time the `classes` variable occurs (at line 603, 689, and 776).
 
-   ![](/Users/aman/Desktop/Ship-Detection/blog/images/filters_exam.png)
-
-   Fig 11. Change the number of classes and filters according to the custom data.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipmodel.png" alt="" data-position="center" /></a><br>
+  <p>Fig 11. Change the number of classes and filters according to the custom data.</p>
+</div>
 
 5. You can even provide the data augmentations while training by adjusting the following variables. 
 
@@ -297,9 +303,10 @@ Before beginning the training process, make sure all the paths provided in the e
 
 You'll get the following output.
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/training_output.png)
-
-Fig 12. The model logs showing the progression of training.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shiptraining.png" alt="" data-position="center" /></a><br>
+  <p>Fig 12. The model logs showing the progression of training.</p>
+</div>
 
 Here, the highlighted text shows the average loss and should be as low as possible. For the COCO dataset, yolov3 was trained until the average loss reached 0.6. But, this may not be applicable for your dataset; therefore, to make sure that the network doesn't overfit on the training set, keep on checking its results on the test set.
 
@@ -327,13 +334,15 @@ If you see the model not giving good results or no bounding box at all, wait for
 
 ## 4. Results
 
-![](/Users/aman/Desktop/Ship-Detection/blog/images/result_1.png)
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipres1.png" alt="" data-position="center" /></a><br>
+  <p>Fig 13. Some results of the model on the test images.</p>
+</div>
 
-Fig 13. Some results of the model on the test images.
-
-![](/Users/aman/Desktop/Ship-Detection/blog/images/result_2.png)
-
-Fig 14. Few more results of the model on the test images.
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/shipres2.png" alt="" data-position="center" /></a><br>
+  <p>Fig 14. Few more results of the model on the test images.</p>
+</div>
 
 The model was trained on the AWS EC2 instance using the V100 GPU. With such a powerful accelerator, it took around 1 hr to reach 30,000 iterations with the average loss around 0.9-1.0, and the result was awesome. Except for a few misses here and there, the model worked pretty well on the test set overall. The training set consisted of 200 images, while the test set had 50 images. 
 
