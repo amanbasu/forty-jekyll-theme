@@ -13,8 +13,8 @@
   </article>
   {% endif %}
   {% endfor %}
-  {% assign shuffled_array = site.pages | shuffle %}
-  {% for page in shuffled_array limit:site.tiles-count %}
+  {% assign shuffled_array = site.pages | sample:site.tiles-count %}
+  {% for page in shuffled_array %}
   {% if site.tiles-source == 'pages' and page.show_tile != false %}
   <article>
     <span class="image">
