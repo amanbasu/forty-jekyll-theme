@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Global Terrorist Attacks
-description: Classifying different parts of land using Machine Learning
+description: Identification of the terror group based on certain parameters
 image: assets/images/classificationterrorist.png
 nav-menu: true
 ---
