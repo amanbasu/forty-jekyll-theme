@@ -196,12 +196,12 @@ sns.heatmap(corr, mask=mask, cmap=cmap, vmax=1, center=0.5, square=True, linewid
 ![png](output_7_0.png)
 
 From the scatter plot and correlation plot, we can conclude that-
-- The $X$ features are almost linearly correlated with each other. Moreover, they show similar correlation with $I$ features. Therefore, we can merge them into one (average).
-- $I5$ is almost constant and shows less variance (see the histogram). Therefore, it can be dropped.
-- $I1$ and $I4$ are highly correlated. They can be merged (average).
-- $I2$ shows inverse correlation with $I1$. It can be dropped.
+- The $ X $ features are almost linearly correlated with each other. Moreover, they show similar correlation with $ I $ features. Therefore, we can merge them into one (average).
+- $ I5 $ is almost constant and shows less variance (see the histogram). Therefore, it can be dropped.
+- $ I1 $ and $ I4 $ are highly correlated. They can be merged (average).
+- $ I2 $ shows inverse correlation with $ I1 $. It can be dropped.
 
-Remaining columns: $X$<sub>avg</sub>, $I$<sub>14</sub>, $I$<sub>3</sub>, $I$<sub>6</sub>. 
+Remaining columns: $ X $<sub>avg</sub>, $ I $<sub>14</sub>, $ I $<sub>3</sub>, $ I $<sub>6</sub>. 
 
 #### Note: Highly correlated columns are dropped since they provide no extra information to the model and hampers the performance.
 
@@ -1340,4 +1340,4 @@ I6: 3.40 <br>
 I14: 2.06 <br>
 X: 0.85 <br>
 <hr>
-Clearly, $I6$ classifies the data best.
+Clearly, $ I6 $ classifies the data best.
