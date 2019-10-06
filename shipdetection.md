@@ -214,12 +214,12 @@ git clone https://github.com/pjreddie/darknet
 cd darknet
 make
 ```
-<p style="text-align:center">Get the pre-trained weights from here.</p>
+Get the pre-trained weights from here.
 
 ```bash
 wget https://pjreddie.com/media/files/darknet53.conv.74
 ```
-<p style="text-align:center">Try running the detector to confirm the installation.</p>
+Try running the detector to confirm the installation.
 
 ```bash
 ./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
