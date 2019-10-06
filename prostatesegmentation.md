@@ -2,7 +2,7 @@
 layout: pages
 title: Prostate Segmentation
 description: Segmentation of prostate from MRI scans using DV-Net
-image: assets/images/prostate.png
+image: assets/images/prostateseg.gif
 nav-menu: true
 ---
 
@@ -39,7 +39,10 @@ nav-menu: true
 
 # Implementation
 
-We used a modified V-net architecture for segmentation.
+We used a modified V-net architecture for segmentation that is shown below. 
+<div style="text-align:center">
+  <a href="" class="image"><img src="assets/images/prostate.png" alt="" data-position="center" /></a><br>
+</div>
 
 # Training
 We trained our model on different GPUs and got the following speedups.
