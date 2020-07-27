@@ -3,13 +3,15 @@
 
 <!-- Header -->
 <header id="header"{% if page.layout == "landing" %} class="alt style2"{% endif %}{% if page.layout == "home" %} class="alt"{% endif %}>
-	<a href="{{ "" | absolute_url }}/" class="logo"><strong>{{ site.title }}</strong> <span>{{ site.subtitle }}</span></a>
 	<nav>
 		<a href="https://amanbasu.github.io/">Homepage</a>
 	</nav>
-	<!-- Hacky fix for header layout -->
+	
+	<a href="{{ "" | absolute_url }}/" class="logo"><strong>{{ site.title }}</strong> <span>{{ site.subtitle }}</span></a>
+	
+	<!-- Hacky fix for header layout >
 	<nav>
-		<a href="">&emsp;&emsp;&emsp;&emsp;</a>
+		<a href="">GiHub</a>
 	</nav>
 	<nav>
 		<a href="">&emsp;&emsp;&emsp;&emsp;</a>
@@ -19,7 +21,7 @@
 	</nav>
 	<nav>
 		<a href="">&emsp;&emsp;&emsp;&emsp;</a>
-	</nav>
+	</nav-->
 	<nav>
 		<a href="#menu">Menu</a>
 	</nav>
