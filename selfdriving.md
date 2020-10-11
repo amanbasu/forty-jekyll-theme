@@ -11,7 +11,7 @@ This project uses various Deep Learning model architectures to classify the self
 [Paper](https://amanagarwal.io/files/autoCar.pdf) | [Blog post](https://medium.com/@amanag.11/driving-sans-driver-e7293b49d84f)
 
 ```
-@article{AmanAutoCar,
+@article{AgarwalBehavioral2020,
   title={Behavioral Cloning in Autonomous Vehicle UsingDeep Learning},
   author={Aman Agarwal and Aditya Mishra and Priyanka Sharma}
 }
