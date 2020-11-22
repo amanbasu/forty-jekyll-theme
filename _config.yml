@@ -11,7 +11,7 @@ city: Pune
 state: Maharashtra
 zip_code: 411014
 country: India
-# phone: +91 75740-14476
+phone: 
 
 # homepage tiles
 tiles-source: pages # accepts "posts" or "pages"
@@ -40,5 +40,5 @@ nav:
    link: "https://scholar.google.com/citations?user=pbuqtFQAAAAJ&hl=en"
  - name: "LinkedIn"
    link: "https://www.linkedin.com/in/theabecedarian/"
- - name: "Resume"
-   link: "resume.pdf"
+#  - name: "Resume"
+#    link: "resume.pdf"
