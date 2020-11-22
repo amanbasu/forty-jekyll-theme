@@ -11,7 +11,7 @@ city: Pune
 state: Maharashtra
 zip_code: 411014
 country: India
-phone: +91 75740-14476
+# phone: +91 75740-14476
 
 # homepage tiles
 tiles-source: pages # accepts "posts" or "pages"
