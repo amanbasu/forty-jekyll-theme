@@ -6,11 +6,11 @@ image: assets/images/zomatoviz.png
 nav-menu: true
 ---
 
-View notebook [here](https://nbviewer.org/github/amanbasu/zomato-data-visualization/blob/master/viz-notebook.ipynb).
-
 <p align="center">  
-  <img align="center" src="https://github.com/amanbasu/zomato-data-visualization/blob/master/figures/cover_photo.png" width="70%"/>
+  <img align="center" src="assets/images/zomatoviz.png" width="70%"/>
 </p>
+
+View notebook [here](https://nbviewer.org/github/amanbasu/zomato-data-visualization/blob/master/viz-notebook.ipynb).
 
 The goal of this project is to create visualizations that thoroughly analyzes restaurant directory information in order to answer specific food-related queries. As part of this framework, we hope to add rich visualizations based on restaurant meta-data such as location, pricing, ratings, and cuisine to aid in the resolution of various issues.
 
