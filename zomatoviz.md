@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Zomato data visualizatio
+title: Zomato data visualization
 description: Analysing restaurant data using various visualizations
 image: assets/images/zomatoviz.png
 nav-menu: true
