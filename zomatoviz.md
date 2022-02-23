@@ -1,4 +1,10 @@
-# Zomato data visualization
+---
+layout: post
+title: Zomato data visualizatio
+description: Analysing restaurant data using various visualizations
+image: assets/images/1*nyILrq0KnC2YRUvVhqY44A.png
+nav-menu: true
+---
 
 View notebook [here](https://nbviewer.org/github/amanbasu/zomato-data-visualization/blob/master/viz-notebook.ipynb).
 
